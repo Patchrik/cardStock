@@ -11,7 +11,10 @@
           </v-col>
         </v-row>
       </v-app-bar>
-      <stock-card ticker="IBM" />
+      <stock-card ticker="TSLA" />
+      <stock-card ticker="AAPL" />
+      <stock-card ticker="AMZN" />
+      <stock-card ticker="FB" />
     </v-container>
   </v-app>
 </template>

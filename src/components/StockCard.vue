@@ -47,7 +47,14 @@
     methods: {
       async convertData() {
         const response = await fetch(
-          "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo"
+          `https://alpha-vantage.p.rapidapi.com/query?interval=5min&function=TIME_SERIES_INTRADAY&symbol=${this.ticker}&datatype=json&output_size=compact`,
+          {
+            method: "GET",
+            headers: {
+              "x-rapidapi-key": process.env.VUE_APP_ALPHA_VAN_KEY,
+              "x-rapidapi-host": "alpha-vantage.p.rapidapi.com",
+            },
+          }
         );
         const data = await response.json();
         this.chartData = buildParsedArray(data["Time Series (5min)"]);
